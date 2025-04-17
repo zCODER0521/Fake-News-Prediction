@@ -12,6 +12,7 @@ from sklearn.metrics import accuracy_score
 import nltk
 nltk.download('stopwords')
 stop_words = set(stopwords.words('english'))
+
 #DATA PREPROCESSINg
 
 news_dataset=pd.read_csv('train.csv') 
@@ -34,8 +35,8 @@ def stemming(content):
 
 news_dataset['content']=news_dataset['content'].apply(stemming)
 
-X=news_dataset['content'].values
-Y=news_dataset['label'].values
+X = news_dataset['content'].values
+Y = news_dataset['label'].values
 
 vectorizer=TfidfVectorizer()
 vectorizer.fit(X)
